@@ -3,7 +3,7 @@ WORKDIR /app
 RUN apk add --no-cache git
 COPY . .
 RUN go mod download
-RUN CGO_ENABLED=0 GOOS=linux go build -o groups-relay .
+RUN CGO_ENABLED=0 GOOS=linux go build -p 1 -o groups-relay .
 
 FROM alpine:latest
 WORKDIR /app
